@@ -47,11 +47,10 @@ describe('Payever Test Demo', function () {
         //6. Clicked on Themes
         await ThemeTextPage.themeBtn();
         //7. Click on Add Theme
-        await driver.wait(until.elementLocated(By.xpath(`/html[1]/body[1]/os-commerce[1]/os-commerce-root[1]/div[2]/div[1]/app-builder[1]/pe-builder-themes-list[1]/div[2]/pe-builder-themes-list-user[1]/div[1]/pe-builder-theme-plus[1]/mat-card[1]/mat-card-content[1]`)),50000);
-
         await ThemeTextPage.addTheme();
         //8. Click on Text Widget
-        await ThemeTextPage.clickText();
+        await driver.findElement(By.xpath(`//*[@id="menus"]/pe-builder-navbar-top/mat-toolbar/mat-toolbar-row/pe-builder-navbar-top-button[4]/button`)).click();
+        await ThemeTextPage.addText();
         // Shadow Dom Element 
         async function getShadowRoot() {
             let shadowHost;
