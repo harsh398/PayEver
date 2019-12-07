@@ -1,0 +1,30 @@
+{
+  "name": "PayeverTest",
+  "version": "1.0.0",
+  "description": "Selenium WebdriverJS Mocha Payever Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/_mocha --require babel-core/register --require babel-polyfill tests"
+  },
+  "author": "Harsharan Deep ",
+  "license": "",
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "chromedriver": "^78.0.1",
+    "edgedriver": "^4.17134.1",
+    "geckodriver": "^1.19.1",
+    "iedriver": "^3.14.1",
+    "mocha": "^6.2.2",
+    "operadriver": "^1.0.0",
+    "selenium-webdriver": "^4.0.0-alpha.5",
+    "yargs": "^15.0.2"
+  }
+}
