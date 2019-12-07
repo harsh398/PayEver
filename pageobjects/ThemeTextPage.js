@@ -24,10 +24,5 @@ export default function (driver) {
             return await driver.findElement(By.xpath(`//*[@id="menus"]/pe-builder-navbar-top/mat-toolbar/mat-toolbar-row/pe-builder-navbar-top-button[4]/button`)).click();
 
         },
-        clickText: async function () {
-            await driver.wait(until.elementLocated(pageobjects.clickWidget), 10000);
-            return await driver.findElement(pageobjects.clickWidget).click();
-        },
-
     };
 }

@@ -88,7 +88,9 @@ describe('Payever Test Demo', function () {
         await findShadowDomElement(`.pe-editor-canvas__container pe-editor-element-anchors svg`);
         await driver.wait(until.elementLocated(By.xpath(`//*[@id="content"]/div[2]/pe-editor-text-decorator/pe-text-editor/div/span`)), 30000);
         await driver.findElement(By.xpath(`//*[@id="content"]/div[2]/pe-editor-text-decorator/pe-text-editor/div/span`)).sendKeys('This test is completed!');
+        console.log('8. Text Added');
         await driver.findElement(By.xpath(`//*[@id="os-app-main"]/os-commerce-root/platform-header-component/pe-platform-header/pe-navbar/mat-toolbar/div[3]/button`)).click();
+        console.log("9. Clicked on Close");
     });
 
     afterEach(async function () {

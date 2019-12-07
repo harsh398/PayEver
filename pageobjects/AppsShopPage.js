@@ -1,4 +1,8 @@
-import { By, until, Key } from "selenium-webdriver";
+import {
+    By,
+    until,
+    Key
+} from "selenium-webdriver";
 
 export default function (driver) {
     const pageobjects = {
