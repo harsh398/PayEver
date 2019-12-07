@@ -27,31 +27,28 @@ describe('Payever Test Demo', function () {
         let AppShopPage = new AppShop(driver);
         let ThemeTextPage = new ThemeText(driver);
         //1. Add Credenials 
+        console.log("1 Yes Done");
         await driver.wait(until.elementLocated(By.name(`UserName`)), 50000);
+       console.log("Yes Done");
         await LoginPage.typeUserName('aqa@payever.org');
         await LoginPage.typePass('Aqacool123!');
         //2. Click on Login Button
         await LoginPage.loginBtn();
         //3. Business DashBoard will get Loaded 
         const dashboardLoaded = await driver.wait(until.elementLocated(By.xpath(`//*[@id="os-app-main"]/os-commerce-root/div[2]/span/business-dashboard-layout/base-dashboard/div/div/div/widgets-layout`)), 30000);
-        await driver.executeScript('return document.URL').then(function (return_value) {
-            assert.equal(return_value, 'https://commerceos.staging.devpayever.com/business/2c965cbc-df55-4785-b820-cd803486f8d7/info/overview')
-        });
         //4. Clicked on Apps 
-        await AppShopPage.appBtn();
-        await driver.executeScript('return document.URL').then(function (return_value) {
-            assert.equal(return_value, 'https://commerceos.staging.devpayever.com/business/2c965cbc-df55-4785-b820-cd803486f8d7/info/apps')
-        });
+        await AppShopPage.clickApp();
+        await driver.wait(until.elementLocated(By.xpath(`/html[1]/body[1]/os-commerce[1]/os-commerce-root[1]/div[2]/span[1]/business-layout[1]/apps-layout[1]/div[1]/div[1]/app-card[1]/div[1]/mat-card[1]/div[1]/business-applications[1]/div[7]
+        `)), 50000);
         //5. Clicked on Shop
-        await AppShopPage.shopBtn();
+        await AppShopPage.clickShop();
         await driver.wait(until.elementLocated(By.xpath(`//*[@id="os-app-main"]/os-commerce-root/platform-header-component/pe-platform-header/pe-navbar/mat-toolbar/div[1]/button[3]/span/span`)), 30000);
 
-        await driver.executeScript('return document.URL').then(function (return_value) {
-            assert.equal(return_value, 'https://commerceos.staging.devpayever.com/business/2c965cbc-df55-4785-b820-cd803486f8d7/builder/shop/6c082a7a-5446-4f25-a3bd-9d080cf54921/builder/editor/home?themeType=application&theme=6c082a7a-5446-4f25-a3bd-9d080cf54921&channelSet=a644f50e-b992-433a-950e-c66dc247c80e&backUrl=&getBusinessThemeByAppTheme=true&')
-        });
         //6. Clicked on Themes
         await ThemeTextPage.themeBtn();
         //7. Click on Add Theme
+        await driver.wait(until.elementLocated(By.xpath(`/html[1]/body[1]/os-commerce[1]/os-commerce-root[1]/div[2]/div[1]/app-builder[1]/pe-builder-themes-list[1]/div[2]/pe-builder-themes-list-user[1]/div[1]/pe-builder-theme-plus[1]/mat-card[1]/mat-card-content[1]`)),50000);
+
         await ThemeTextPage.addTheme();
         //8. Click on Text Widget
         await ThemeTextPage.clickText();

@@ -3,8 +3,8 @@ import { By, until, Key } from "selenium-webdriver";
 export default function (driver) {
     const pageobjects = {
         appBtn: By.xpath(`//*[@id="os-app-main"]/os-commerce-root/platform-header-component/pe-platform-header/pe-navbar/mat-toolbar/div[1]/button[2]/span/span`),
-        appsMenu: By.xpath(`//*[@id="os-app-main"]/os-commerce-root/div[2]/span/business-layout/apps-layout/div/div/app-card/div/mat-card/div[1]/business-applications/div[7]/div[1]/div`),
-        shopBtn: By.xpath(`//*[@id="os-app-main"]/os-commerce-root/div[2]/span/business-layout/apps-layout/div/div/app-card/div/mat-card/div[1]/business-applications/div[7]/div[1]/div`),
+        appsMenu: By.xpath(`/html[1]/body[1]/os-commerce[1]/os-commerce-root[1]/div[2]/span[1]/business-layout[1]/apps-layout[1]/div[1]/div[1]/app-card[1]/div[1]/mat-card[1]/div[1]/business-applications[1]/div[7]`),
+        shopBtn: By.xpath(`/html[1]/body[1]/os-commerce[1]/os-commerce-root[1]/div[2]/span[1]/business-layout[1]/apps-layout[1]/div[1]/div[1]/app-card[1]/div[1]/mat-card[1]/div[1]/business-applications[1]/div[7]`),
     };
 
     return {
