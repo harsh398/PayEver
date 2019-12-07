@@ -13,14 +13,14 @@ export default function (driver) {
 
     return {
 
-        typeUserName: function (username) {
-            return driver.findElement(pageobjects.usernameField).sendKeys(username);
+        typeUserName: async function (username) {
+            return await driver.findElement(pageobjects.usernameField).sendKeys(username);
         },
-        typePass: function (password) {
-            return driver.findElement(pageobjects.passwordField).sendKeys(password);
+        typePass: async function (password) {
+            return await driver.findElement(pageobjects.passwordField).sendKeys(password);
         },
-        loginBtn: function () {
-            return driver.findElement(pageobjects.loginBtn).click();
+        loginBtn: async function () {
+            return await driver.findElement(pageobjects.loginBtn).click();
         },
     };
 }

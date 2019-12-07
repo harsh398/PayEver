@@ -13,13 +13,13 @@ export default function (driver) {
 
     return {
 
-        clickApp: function () {
-            driver.wait(until.elementLocated(pageobjects.appBtn), 10000);
-            return driver.findElement(pageobjects.appBtn).click();
+        clickApp: async function () {
+            await driver.wait(until.elementLocated(pageobjects.appBtn), 10000);
+            return await driver.findElement(pageobjects.appBtn).click();
         },
-        clickShop: function () {
-            driver.wait(until.elementLocated(pageobjects.appsMenu), 10000);
-            return driver.findElement(pageobjects.shopBtn).click();
+        clickShop: async function () {
+            await driver.wait(until.elementLocated(pageobjects.appsMenu), 10000);
+            return await driver.findElement(pageobjects.shopBtn).click();
         },
     };
 }
