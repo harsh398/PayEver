@@ -1,6 +1,7 @@
 import Login from '../pageobjects/LoginPage';
 import AppShop from '../pageobjects/AppsShopPage';
 import ThemeText from '../pageobjects/ThemeTextPage';
+const { Builder, By, Key, until } = require('selenium-webdriver');
 import { assert } from 'chai';
 import { argv } from 'yargs';
 import getDriver from '../driverutil/driverutil';
@@ -11,19 +12,22 @@ import "selenium-webdriver/testing";
 
 describe('Payever Test Demo', function () {
     let driver;
-    this.timeout(10000);
+    this.timeout(50000);
     this.beforeEach('Browser initializaton', async function () {
         driver = getDriver(argv.browser)
         driver.manage().window().maximize();
+        this.timeout(50000);
         await driver.get("https://commerceos.staging.devpayever.com/entry/login");
+        
     });
 
     it('User can Login and perform Actions ', async function () {
-        this.timeout(50000);//login too slow
+//login too slow
         let LoginPage = new Login(driver);
         let AppShopPage = new AppShop(driver);
         let ThemeTextPage = new ThemeText(driver);
         //1. Add Credenials 
+        await driver.wait(until.elementLocated(By.name(`UserName`)), 50000);
         await LoginPage.typeUserName('aqa@payever.org');
         await LoginPage.typePass('Aqacool123!');
         //2. Click on Login Button
@@ -73,7 +77,7 @@ describe('Payever Test Demo', function () {
         await driver.findElement(By.xpath(`//*[@id="os-app-main"]/os-commerce-root/platform-header-component/pe-platform-header/pe-navbar/mat-toolbar/div[3]/button`)).click();
     });
 
-    afterEach(async function () {
-        await driver.quit();
-    });
+    // afterEach(async function () {
+    //     await driver.quit();
+    // });
 });
