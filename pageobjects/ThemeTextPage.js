@@ -15,7 +15,7 @@ export default function (driver) {
             return await driver.findElement(pageobjects.themesBtn).click();
         },
         addTheme: async function () {
-            await driver.wait(until.elementLocated(By.xpath(`//*[@id="os-app-main"]/os-commerce-root/div[2]/div/app-builder/pe-builder-themes-list/div[2]/pe-builder-themes-list-user/div/pe-builder-theme-plus/mat-card`)), 30000);
+            await driver.wait(until.elementLocated(By.xpath(`//*[@id="os-app-main"]/os-commerce-root/div[2]/div/app-builder/pe-builder-themes-list/div[2]/pe-builder-themes-list-user/div/pe-builder-theme-plus/mat-card`)), 50000);
             return await driver.findElement(By.xpath(`//*[@id="os-app-main"]/os-commerce-root/div[2]/div/app-builder/pe-builder-themes-list/div[2]/pe-builder-themes-list-user/div/pe-builder-theme-plus/mat-card`)).click();
 
         },

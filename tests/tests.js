@@ -45,6 +45,12 @@ describe('Payever Test Demo', function () {
         //2. Click on Login Button
         console.log("2. User Login");
         await LoginPage.loginBtn();
+        //IF there are multiple profiles then select AQA 
+        if(await driver.wait(until.elementLocated(By.xpath(`//button[@class='profile-switch-button mat-button-sm mat-raised-button mat-muted mat-button-rounded mat-button-space-between mat-button-with-arrow ng-star-inserted']
+        `)), 50000)){
+            await LoginPage.loginAqa();
+            await LoginPage.profileSwitch();
+        }
         //3. Business DashBoard will get Loaded 
         const dashboardLoaded = await driver.wait(until.elementLocated(By.xpath(`//*[@id="os-app-main"]/os-commerce-root/div[2]/span/business-dashboard-layout/base-dashboard/div/div/div/widgets-layout`)), 30000);
         //4. Clicked on Apps 
@@ -84,7 +90,6 @@ describe('Payever Test Demo', function () {
 
             return element;
         };
-
         await findShadowDomElement(`.pe-editor-canvas__container pe-editor-element-anchors svg`);
         await driver.wait(until.elementLocated(By.xpath(`//*[@id="content"]/div[2]/pe-editor-text-decorator/pe-text-editor/div/span`)), 30000);
         await driver.findElement(By.xpath(`//*[@id="content"]/div[2]/pe-editor-text-decorator/pe-text-editor/div/span`)).sendKeys('This test is completed!');
