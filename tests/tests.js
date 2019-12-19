@@ -15,9 +15,9 @@ import {
 } from 'yargs';
 import getDriver from '../driverutil/driverutil'; {
     describe,
-    before,
-    after,
-    it
+        before,
+        after,
+        it
 }
 import "selenium-webdriver/testing";
 
@@ -46,8 +46,8 @@ describe('Payever Test Demo', function () {
         console.log("2. User Login");
         await LoginPage.loginBtn();
         //IF there are multiple profiles then select AQA 
-        if(await driver.wait(until.elementLocated(By.xpath(`//button[@class='profile-switch-button mat-button-sm mat-raised-button mat-muted mat-button-rounded mat-button-space-between mat-button-with-arrow ng-star-inserted']
-        `)), 50000)){
+        if (await driver.wait(until.elementLocated(By.xpath(`//button[@class='profile-switch-button mat-button-sm mat-raised-button mat-muted mat-button-rounded mat-button-space-between mat-button-with-arrow ng-star-inserted']
+        `)), 50000)) {
             await LoginPage.loginAqa();
             await LoginPage.profileSwitch();
         }
@@ -62,7 +62,6 @@ describe('Payever Test Demo', function () {
         await AppShopPage.clickShop();
         console.log("4. Clicked on Shop");
         await driver.wait(until.elementLocated(By.xpath(`//*[@id="os-app-main"]/os-commerce-root/platform-header-component/pe-platform-header/pe-navbar/mat-toolbar/div[1]/button[3]/span/span`)), 30000);
-
         //6. Clicked on Themes
         await ThemeTextPage.themeBtn();
         console.log("5. Clicked on Themes");
@@ -87,7 +86,6 @@ describe('Payever Test Demo', function () {
             await shadowRoot.then(async (result) => {
                 await (element = result.findElement(By.css(shadowDomElement)).click());
             });
-
             return element;
         };
         await findShadowDomElement(`.pe-editor-canvas__container pe-editor-element-anchors svg`);
@@ -97,7 +95,6 @@ describe('Payever Test Demo', function () {
         await driver.findElement(By.xpath(`//*[@id="os-app-main"]/os-commerce-root/platform-header-component/pe-platform-header/pe-navbar/mat-toolbar/div[3]/button`)).click();
         console.log("9. Clicked on Close");
     });
-
     afterEach(async function () {
         await driver.quit();
     });
